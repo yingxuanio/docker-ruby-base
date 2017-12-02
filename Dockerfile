@@ -11,6 +11,8 @@ RUN apt-get update -qq && apt-get install -y curl
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get install -y git build-essential libpq-dev nodejs libsqlite3-dev ruby-mysql libmysqlclient-dev imagemagick
 
-RUN gem install bundler  --no-ri --no-rdoc
+RUN gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/
+RUN gem install bundler --no-ri --no-rdoc
+RUN bundle config mirror.https://rubygems.org https://gems.ruby-china.org
 
 CMD "bash"
