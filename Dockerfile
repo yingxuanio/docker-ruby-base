@@ -11,7 +11,7 @@ RUN apt-get update -qq && apt-get install -y curl
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list
-RUN apt-get install -y git build-essential libpq-dev nodejs libsqlite3-dev ruby-mysql libmysqlclient-dev imagemagick yarn
+RUN apt-get update -qq && apt-get install -y git build-essential libpq-dev nodejs libsqlite3-dev ruby-mysql libmysqlclient-dev imagemagick yarn
 
 RUN gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/
 RUN gem install bundler --no-ri --no-rdoc
